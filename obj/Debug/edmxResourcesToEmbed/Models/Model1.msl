@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Inventory_SystemModelStoreContainer" CdmEntityContainer="Inventory_SystemEntities">
+    <EntitySetMapping Name="products">
+      <EntityTypeMapping TypeName="Inventory_SystemModel.product">
+        <MappingFragment StoreEntitySet="product">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Product_Name" ColumnName="Product_Name" />
+          <ScalarProperty Name="Product_Qnty" ColumnName="Product_Qnty" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="purchases">
+      <EntityTypeMapping TypeName="Inventory_SystemModel.purchase">
+        <MappingFragment StoreEntitySet="purchase">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Purchase_Prod" ColumnName="Purchase_Prod" />
+          <ScalarProperty Name="Purchase_Qnty" ColumnName="Purchase_Qnty" />
+          <ScalarProperty Name="Purchase_Date" ColumnName="Purchase_Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sales">
+      <EntityTypeMapping TypeName="Inventory_SystemModel.Sale">
+        <MappingFragment StoreEntitySet="Sale">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Sale_Prod" ColumnName="Sale_Prod" />
+          <ScalarProperty Name="Sale_Qnty" ColumnName="Sale_Qnty" />
+          <ScalarProperty Name="Sale_Date" ColumnName="Sale_Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

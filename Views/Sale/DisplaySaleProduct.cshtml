@@ -1,0 +1,64 @@
+﻿@model IEnumerable<InventoryManagementSystem.Models.Sale>
+
+@{
+    ViewBag.Title = "DisplaySaleProduct";
+}
+
+<h3>Sale Product Lists</h3>
+
+<p>
+    @Html.ActionLink("Create New", "SaleProduct",null,new {@class="btn btn-primary" })
+</p>
+@{
+    if (TempData["successmessage"] != null)
+    {
+        <div class="alert alert-success">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>Success!</strong> @TempData["successmessage"]
+        </div>
+    }
+    else if (TempData["errormessage"] != null)
+    {
+        <div class="alert alert-danger">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>Danger!</strong> @TempData["errormessage"]
+        </div>
+    }
+}
+
+<br />
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Sale_Prod)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sale_Qnty)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sale_Date)
+        </th>
+        <th>Actions</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sale_Prod)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sale_Qnty)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sale_Date)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "UpdateSaleProduct", new { id = item.ID }, new { @class = "btn btn-primary" }) &nbsp;
+                @Html.ActionLink("Details", "DetailsSaleProduct", new { id = item.ID }, new { @class = "btn btn-success" }) &nbsp;
+                @Html.ActionLink("Delete", "DeleteSaleProduct", new { id = item.ID }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+
+</table>

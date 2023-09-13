@@ -1,0 +1,28 @@
+-----------Database create----------------------------- 
+
+   Create Database Inventory_System
+------------------product table---------------------------
+
+   
+create table product(
+ID int identity(1,1) primary key,
+Product_Name varchar(50) not null,
+Product_Qnty varchar(10) not null
+)
+
+-----------------purchase table----------------------------
+create table purchase(
+ID int identity(1,1) primary key,
+Purchase_Prod varchar(50) not null,
+Purchase_Qnty varchar(10) not null,
+Purchase_Date date not null
+)
+
+------------Sale table-----------------------
+
+create table Sale(
+ID int identity(1,1) primary key,
+Sale_Prod varchar(50) not null,
+Sale_Qnty varchar(10) not null,
+Sale_Date date not null
+)

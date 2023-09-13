@@ -1,0 +1,66 @@
+﻿@model IEnumerable<InventoryManagementSystem.Models.purchase>
+
+@{
+    ViewBag.Title = "DisplayPurchase";
+}
+
+<h3>Purchase Lists</h3>
+
+<p>
+    @Html.ActionLink("Create New", "PurchaseProduct", null, new { @class = "btn btn-primary" })
+</p>
+@{
+    if (TempData["successmessage"] != null)
+    {
+        <div class="alert alert-success">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>Success!</strong> @TempData["successmessage"]
+        </div>
+    }
+    else if (TempData["errormessage"] != null)
+    {
+        <div class="alert alert-danger">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>Danger!</strong> @TempData["errormessage"]
+        </div>
+    }
+}
+
+<br />
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Purchase_Prod)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Purchase_Qnty)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Purchase_Date)
+        </th>
+        <th>
+            @Html.DisplayName("Actions")
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Purchase_Prod)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Purchase_Qnty)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Purchase_Date)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "UpdatePurchaseProduct", new { id = item.ID }, new { @class = "btn btn-primary" }) &nbsp;
+                @Html.ActionLink("Details", "DetailsPurchaseProduct", new { id = item.ID }, new { @class = "btn btn-success" }) &nbsp;
+                @Html.ActionLink("Delete", "DeletePurchaseProduct", new { id = item.ID }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+
+</table>
