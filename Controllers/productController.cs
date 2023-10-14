@@ -75,14 +75,14 @@ namespace InventoryManagementSystem.Controllers
             return View(pr);
         }
         [HttpPost]
-        public ActionResult UpdateProduct(int id, product pro)
+        public ActionResult UpdateProduct(product pro)
         {
             try
             {
+                product pr = new product();
+                pr = db.products.Where(x => x.ID == pro.ID).SingleOrDefault();
                 if (ModelState.IsValid)
                 {
-                    product pr = new product();
-                    pr = db.products.Where(x => x.ID == id).SingleOrDefault();
                     pr.Product_Name = pro.Product_Name;
                     pr.Product_Qnty = pro.Product_Qnty;
                     db.SaveChanges();

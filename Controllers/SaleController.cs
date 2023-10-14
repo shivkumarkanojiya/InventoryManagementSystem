@@ -77,14 +77,15 @@ namespace InventoryManagementSystem.Controllers
             return View(sal);
         }
         [HttpPost]
-        public ActionResult UpdateSaleProduct(int id, Sale sal)
+        public ActionResult UpdateSaleProduct(Sale sal)
         {
             try
             {
-                if (ModelState.IsValid)
+
+                Sale s = new Sale();
+                s = db.Sales.Where(x => x.ID == sal.ID).SingleOrDefault();
+                if (s != null)
                 {
-                    Sale s = new Sale();
-                    s = db.Sales.Where(x => x.ID == id).SingleOrDefault();
                     s.Sale_Prod = sal.Sale_Prod;
                     s.Sale_Qnty = sal.Sale_Qnty;
                     s.Sale_Date = sal.Sale_Date;
@@ -93,9 +94,8 @@ namespace InventoryManagementSystem.Controllers
                 }
                 else
                 {
-                    TempData["errormessage"] = "Record not Updated..";
+                    TempData["successmessage"] = "Record Not Updated..";
                 }
-
 
             }
             catch (Exception ex)

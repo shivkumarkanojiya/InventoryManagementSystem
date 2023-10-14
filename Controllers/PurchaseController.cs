@@ -75,26 +75,25 @@ namespace InventoryManagementSystem.Controllers
             return View(pr);
         }
         [HttpPost]
-        public ActionResult UpdatePurchaseProduct(int id, purchase pro)
+        public ActionResult UpdatePurchaseProduct(purchase pr)
         {
             try
             {
-                if (ModelState.IsValid)
+                purchase objpr = new purchase();
+                objpr = db.purchases.Where(x => x.ID == pr.ID).SingleOrDefault();
+
+                if (objpr != null)
                 {
-                    purchase objpr = new purchase();
-                    objpr = db.purchases.Where(x => x.ID == id).SingleOrDefault();
-                    objpr.Purchase_Prod = pro.Purchase_Prod;
-                    objpr.Purchase_Qnty = pro.Purchase_Qnty;
-                    objpr.Purchase_Date = pro.Purchase_Date;
+                    objpr.Purchase_Prod = pr.Purchase_Prod;
+                    objpr.Purchase_Qnty = pr.Purchase_Qnty;
+                    objpr.Purchase_Date = pr.Purchase_Date;
                     db.SaveChanges();
                     TempData["successmessage"] = "Record Updated successfully..";
                 }
                 else
                 {
-                    TempData["errormessage"] = "Record not Updated..";
+                    TempData["errormessage"] = "Purchase Product not Updated..";
                 }
-
-
             }
             catch (Exception ex)
             {
