@@ -379,7 +379,7 @@ namespace InventoryManagementSystem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public productRow AddproductRow(string Product_Name, string Product_Qnty) {
+            public productRow AddproductRow(string Product_Name, int Product_Qnty) {
                 productRow rowproductRow = ((productRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -426,7 +426,7 @@ namespace InventoryManagementSystem {
                 base.Columns.Add(this.columnID);
                 this.columnProduct_Name = new global::System.Data.DataColumn("Product_Name", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnProduct_Name);
-                this.columnProduct_Qnty = new global::System.Data.DataColumn("Product_Qnty", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnProduct_Qnty = new global::System.Data.DataColumn("Product_Qnty", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnProduct_Qnty);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID}, true));
@@ -439,7 +439,6 @@ namespace InventoryManagementSystem {
                 this.columnProduct_Name.AllowDBNull = false;
                 this.columnProduct_Name.MaxLength = 50;
                 this.columnProduct_Qnty.AllowDBNull = false;
-                this.columnProduct_Qnty.MaxLength = 10;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -604,9 +603,9 @@ namespace InventoryManagementSystem {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Product_Qnty {
+            public int Product_Qnty {
                 get {
-                    return ((string)(this[this.tableproduct.Product_QntyColumn]));
+                    return ((int)(this[this.tableproduct.Product_QntyColumn]));
                 }
                 set {
                     this[this.tableproduct.Product_QntyColumn] = value;
